@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Application -> Model : User action
+Model -> Navigation : Global action
+Navigation -> WeatherService : Request
+WeatherService -> Navigation : response
+Navigation -> Model : information
+Model -> Application : Update
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+WeatherService -> WeatherLocationService : obtainWeatherLocation
+WeatherLocationService  --> Database : obtainWeatherLocation
+Database -> WeatherLocationService : WeatherLocation ?
+alt Is their a weather location
+    WeatherLocationService --> WeatherService : last known WeatherLocation
+    WeatherLocationService -> WeatherLocationService : check if same day as current
+    alt Same day as current
+        WeatherLocationService --> WeatherService : updated WeatherLocation
+        WeatherLocationService -> : FINISHED
+    end
+end
+WeatherLocationService --> Requester : requestWeather
+Requester --> OpenWeatherServer : request
+OpenWeatherServer --> Requester : response
+Requester --> WeatherLocationService : RetrofitWeatherLocation
+WeatherLocationService --> Database : store
+WeatherLocationService --> Database : obtainWeatherLocation
+Database -> WeatherLocationService : WeatherLocation
+WeatherLocationService --> WeatherService : last known WeatherLocation
+WeatherLocationService --> WeatherService : updated WeatherLocation
+WeatherLocationService -> : FINISHED
+@enduml
