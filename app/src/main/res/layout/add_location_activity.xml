@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalMiddle"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/addLocationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartEnd"
+        android:layout_marginTop="@dimen/marginTopBottom"
+        android:layout_marginEnd="@dimen/marginStartEnd"
+        android:text="@string/addLocation"
+        android:textAlignment="center"
+        android:textSize="@dimen/textSizeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/latitudeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBigBetweenComponents"
+        android:text="@string/latitude"
+        android:textSize="@dimen/textSizeSmall"
+        app:layout_constraintEnd_toStartOf="@id/guidelineHorizontalMiddle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addLocationTitle" />
+
+    <EditText
+        android:id="@+id/latitudeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginSmallBetweenComponents"
+        android:hint="@string/latitudeLongitudeDefault"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLines="1"
+        android:textSize="@dimen/textSizeTitle"
+        app:layout_constraintEnd_toStartOf="@id/guidelineHorizontalMiddle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/latitudeTitle" />
+
+    <TextView
+        android:id="@+id/longitudeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginBigBetweenComponents"
+        android:text="@string/longitude"
+        android:textSize="@dimen/textSizeSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guidelineHorizontalMiddle"
+        app:layout_constraintTop_toBottomOf="@id/addLocationTitle" />
+
+    <EditText
+        android:id="@+id/longitudeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginSmallBetweenComponents"
+        android:hint="@string/latitudeLongitudeDefault"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLines="1"
+        android:textSize="@dimen/textSizeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guidelineHorizontalMiddle"
+        app:layout_constraintTop_toBottomOf="@id/longitudeTitle" />
+
+    <Button
+        android:id="@+id/addLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/marginTopBottom"
+        android:text="@string/addLocation"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

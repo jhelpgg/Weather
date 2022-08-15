@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/currentWeatherLocationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartEnd"
+        android:layout_marginTop="@dimen/marginTopBottom"
+        android:layout_marginEnd="@dimen/marginStartEnd"
+        android:text="@string/locationPattern"
+        android:textAlignment="center"
+        android:textSize="@dimen/textSizeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dateOrLoadingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartEnd"
+        android:layout_marginTop="@dimen/marginStandardBetweenComponents"
+        android:layout_marginEnd="@dimen/marginStartEnd"
+        android:text="@string/loading"
+        android:textAlignment="center"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentWeatherLocationTitle" />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartEnd"
+        android:layout_marginTop="@dimen/marginBigBetweenComponents"
+        android:src="@drawable/unknown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateOrLoadingText" />
+
+
+    <TextView
+        android:id="@+id/weatherName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginBigBetweenComponents"
+        android:text="@string/loading"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toTopOf="@id/weatherIcon" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginBigBetweenComponents"
+        android:layout_marginTop="@dimen/marginStandardBetweenComponents"
+        android:text="@string/loading"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toBottomOf="@id/weatherName" />
+
+    <TextView
+        android:id="@+id/temperatureFeels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginBigBetweenComponents"
+        android:layout_marginTop="@dimen/marginStandardBetweenComponents"
+        android:text="@string/loading"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toBottomOf="@id/temperature" />
+
+    <TextView
+        android:id="@+id/weatherDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStartEnd"
+        android:layout_marginTop="@dimen/marginStandardBetweenComponents"
+        android:layout_marginEnd="@dimen/marginStartEnd"
+        android:layout_marginBottom="@dimen/marginTopBottom"
+        android:text="@string/loading"
+        android:textSize="@dimen/textSizeStandard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherIcon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

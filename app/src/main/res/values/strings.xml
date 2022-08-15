@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="listLocationTitle">Choose a location</string>
+    <string name="addLocation">Add a location</string>
+    <string name="locationPattern">lat=%.2f - lon=%.2f</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
+    <string name="loading">Loading …</string>
+    <string name="temperature">temperature %.2f C</string>
+    <string name="temperatureFeels">feels %.2f C</string>
+    <string name="chooseDay">Choose a day</string>
+</resources>

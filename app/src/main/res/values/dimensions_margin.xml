@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin uses for space between components and parent's horizontal border -->
+    <dimen name="marginStartEnd">8dp</dimen>
+    <!-- Margin uses for space between components and parent's vertical border -->
+    <dimen name="marginTopBottom">16dp</dimen>
+    <!-- Margin uses for standard separation between components -->
+    <dimen name="marginStandardBetweenComponents">8dp</dimen>
+    <!-- Margin uses for small separation between components -->
+    <dimen name="marginSmallBetweenComponents">2dp</dimen>
+    <!-- Margin uses for big separation between components -->
+    <dimen name="marginBigBetweenComponents">16dp</dimen>
+</resources>
