@@ -7,7 +7,8 @@ import fr.jhelp.weatherservice.provider.provided
 
 class ChooseDayModel : ViewModel()
 {
-    val weatherDailyList by provided<List<WeatherDaily>>()
+    private val navigationModel by provided<NavigationModel>()
+    val weatherDailyList get() = this.navigationModel.weatherDailyList
     fun chooseWeatherDaily(weatherDaily: WeatherDaily)
     {
         Navigation.showDaily(weatherDaily)

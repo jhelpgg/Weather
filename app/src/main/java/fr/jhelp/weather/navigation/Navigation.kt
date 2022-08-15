@@ -3,6 +3,7 @@ package fr.jhelp.weather.navigation
 import android.content.Context
 import android.content.Intent
 import androidx.activity.ComponentActivity
+import fr.jhelp.weather.model.NavigationModel
 import fr.jhelp.weather.ui.activities.addlocation.AddLocationActivity
 import fr.jhelp.weather.ui.activities.chooseday.ChooseDayActivity
 import fr.jhelp.weather.ui.activities.current.CurrentWeatherActivity
@@ -10,7 +11,6 @@ import fr.jhelp.weather.ui.activities.daily.DailyWeatherActivity
 import fr.jhelp.weatherservice.model.shared.Location
 import fr.jhelp.weatherservice.model.shared.WeatherDaily
 import fr.jhelp.weatherservice.model.shared.WeatherLocation
-import fr.jhelp.weatherservice.provider.provideSingle
 import fr.jhelp.weatherservice.provider.provided
 import fr.jhelp.weatherservice.service.WeatherServiceInterface
 import fr.jhelp.weatherservice.tools.tasks.promise.FutureResult
@@ -19,6 +19,7 @@ object Navigation
 {
     private val context: Context by provided<Context>()
     private val weatherService: WeatherServiceInterface by provided<WeatherServiceInterface>()
+    private val navigationModel: NavigationModel by provided<NavigationModel>()
     private var currentState = NavigationState.LocationListState
 
     fun showAddLocation()
@@ -40,8 +41,8 @@ object Navigation
             this.currentState = NavigationState.ShowCurrentWeather
             val weatherLocationServiceInterface =
                 this.weatherService.requestWeatherLocation(location.latitude, location.longitude)
-            provideSingle { location }
-            provideSingle { weatherLocationServiceInterface }
+            this.navigationModel.location = location
+            this.navigationModel.weatherLocationService = weatherLocationServiceInterface
             val intent = Intent(this.context, CurrentWeatherActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
             this.context.startActivity(intent)
@@ -53,7 +54,7 @@ object Navigation
         if (this.currentState == NavigationState.ShowCurrentWeather)
         {
             this.currentState = NavigationState.ChooseDay
-            provideSingle { weatherLocation.dailyWeathers }
+            this.navigationModel.weatherDailyList = weatherLocation.dailyWeathers
             val intent = Intent(this.context, ChooseDayActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
             this.context.startActivity(intent)
@@ -65,7 +66,7 @@ object Navigation
         if (this.currentState == NavigationState.ChooseDay)
         {
             this.currentState = NavigationState.ShowDailyWeather
-            provideSingle { weatherDaily }
+            this.navigationModel.weatherDaily = weatherDaily
             val intent = Intent(this.context, DailyWeatherActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
             this.context.startActivity(intent)
