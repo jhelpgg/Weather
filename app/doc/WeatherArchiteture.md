@@ -12,4 +12,4 @@ The models contains necessary data for their associated activity and communicate
 
 In sum up :
 
-
+![Weather sequence](WeatherOverviewSequence.png)
